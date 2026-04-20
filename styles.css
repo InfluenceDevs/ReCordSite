@@ -510,6 +510,14 @@ body {
   background: linear-gradient(180deg, rgba(18, 21, 32, 0.86), rgba(15, 18, 27, 0.9));
 }
 
+.panel-image {
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--border-act);
+  margin-bottom: 0.9rem;
+}
+
 .themes-tabs {
   display: flex;
   gap: 0.75rem;
@@ -593,6 +601,16 @@ body {
   padding: 0.82rem 1rem;
   font-family: var(--font);
   font-size: 1rem;
+}
+
+.plugins-count {
+  color: var(--muted-lt);
+  margin-bottom: 1rem;
+}
+
+.plugins-count a {
+  color: #8ab5ff;
+  text-decoration: none;
 }
 
 .plugins-grid2 {

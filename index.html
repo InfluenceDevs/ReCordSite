@@ -32,7 +32,7 @@
         <a href="#docs">Docs</a>
       </nav>
 
-      <a class="nav-cta" href="https://github.com/InfluenceDevs/ReCord/releases/tag/v1.15.8">Download</a>
+      <a class="nav-cta" data-release-page href="https://github.com/InfluenceDevs/ReCord/releases/latest">Windows · Linux · macOS</a>
     </div>
   </header>
 
@@ -52,20 +52,20 @@
       </p>
 
       <div class="hero-actions fade-in d3">
-        <a class="btn-primary" href="https://github.com/InfluenceDevs/ReCord/releases/tag/v1.15.6">
+        <a class="btn-primary" data-release-page href="https://github.com/InfluenceDevs/ReCord/releases/latest">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1v8M5 6.5l3 3 3-3M2 14h12" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Download v1.15.6
+          Download Latest (All Platforms)
         </a>
         <a class="btn-ghost" href="https://github.com/InfluenceDevs/ReCord" target="_blank" rel="noreferrer">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 .5a7.5 7.5 0 0 0-2.37 14.62c.375.069.513-.162.513-.36v-1.27c-2.087.454-2.527-1.005-2.527-1.005-.341-.867-.833-1.1-.833-1.1-.68-.465.051-.456.051-.456.752.053 1.148.773 1.148.773.668 1.145 1.753.815 2.18.623.068-.484.261-.815.475-1.002-1.664-.19-3.413-.832-3.413-3.705 0-.818.292-1.487.771-2.01-.077-.19-.334-.952.073-1.984 0 0 .629-.201 2.059.768A7.15 7.15 0 0 1 8 5.885c.636.003 1.275.086 1.874.252 1.429-.969 2.057-.768 2.057-.768.408 1.032.151 1.794.074 1.984.48.523.77 1.192.77 2.01 0 2.879-1.752 3.513-3.42 3.698.269.233.509.69.509 1.39v2.058c0 .2.136.433.518.36A7.502 7.502 0 0 0 8 .5z"/></svg>
           Open Source
         </a>
-        <a class="btn-ghost" href="https://github.com/InfluenceDevs/ReCord/releases/tag/v1.15.6" target="_blank" rel="noreferrer">
+        <a class="btn-ghost" data-release-page href="https://github.com/InfluenceDevs/ReCord/releases/latest" target="_blank" rel="noreferrer">
           Release Notes
         </a>
       </div>
 
-      <p class="dl-count fade-in d4"><strong id="dl-num">0</strong> Downloads</p>
+      <p class="dl-count fade-in d4"><strong id="dl-num">0</strong> Latest Release Downloads</p>
 
       <div class="code-window fade-in d4" aria-label="Example ReCord plugin code">
         <div class="code-bar">
@@ -165,6 +165,7 @@
         <p class="sec-sub reveal">Manage local styles, find new themes, and edit QuickCSS in one place.</p>
 
         <div class="themes-shell reveal">
+          <img class="panel-image" src="assets/themes-panel.svg" alt="ReCord themes panel preview" />
           <div class="themes-tabs">
             <button class="tab-btn active" type="button">Local Themes</button>
             <button class="tab-btn" type="button">Online Themes</button>
@@ -200,9 +201,12 @@
         <p class="sec-sub reveal">Press the settings or info icon to inspect plugin details. Verified plugins are marked and safe by default.</p>
 
         <div class="plugins-toolbar reveal">
+          <img class="panel-image" src="assets/plugins-panel.svg" alt="ReCord plugin management preview" />
           <h3>Filters</h3>
           <input type="text" placeholder="Search for a plugin..." aria-label="Search plugins" />
         </div>
+
+        <p class="plugins-count reveal"><strong id="plugin-count">0</strong> plugins tracked from <a href="https://github.com/InfluenceDevs/ReCord/tree/main/src/plugins" target="_blank" rel="noreferrer">src/plugins</a></p>
 
         <div class="plugins-grid2 reveal-group">
           <article class="plugin-card reveal">
@@ -247,12 +251,13 @@
           <h2>Download ReCord</h2>
           <p class="dl-sub">Ready in minutes. No account needed. Packed with features from day one.</p>
           <div class="dl-btns">
-            <a class="btn-primary" href="https://github.com/InfluenceDevs/ReCord/releases/download/v1.15.8/ReCordSetup.exe">
+            <a class="btn-primary" data-win-download href="https://github.com/InfluenceDevs/ReCord/releases/latest/download/ReCordSetup.exe">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1v8M5 6.5l3 3 3-3M2 14h12" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
               Windows Setup
             </a>
-            <a class="btn-ghost" href="https://github.com/InfluenceDevs/ReCord/releases/tag/v1.15.8" target="_blank" rel="noreferrer">Linux Build</a>
-            <a class="btn-ghost" href="https://github.com/InfluenceDevs/ReCord/releases/tag/v1.15.8" target="_blank" rel="noreferrer">Release Notes</a>
+            <a class="btn-ghost" data-linux-download href="https://github.com/InfluenceDevs/ReCord/releases/latest" target="_blank" rel="noreferrer">Linux Build</a>
+            <a class="btn-ghost" data-macos-download href="https://github.com/InfluenceDevs/ReCord/releases/latest" target="_blank" rel="noreferrer">macOS Build</a>
+            <a class="btn-ghost" data-release-page href="https://github.com/InfluenceDevs/ReCord/releases/latest" target="_blank" rel="noreferrer">Release Notes</a>
           </div>
         </div>
       </div>
@@ -275,8 +280,8 @@
       <div class="footer-col">
         <h4>Community</h4>
         <a href="https://github.com/InfluenceDevs/ReCord" target="_blank" rel="noreferrer">Open Source</a>
-        <a href="https://github.com/InfluenceDevs/ReCord/releases/tag/v1.15.8" target="_blank" rel="noreferrer">Release Notes</a>
-        <a href="https://github.com/InfluenceDevs/ReCord/releases/download/v1.15.8/ReCordSetup.exe">Windows Setup</a>
+        <a data-release-page href="https://github.com/InfluenceDevs/ReCord/releases/latest" target="_blank" rel="noreferrer">Release Notes</a>
+        <a data-win-download href="https://github.com/InfluenceDevs/ReCord/releases/latest/download/ReCordSetup.exe">Windows Setup</a>
       </div>
 
       <div class="footer-col" id="docs">
@@ -289,8 +294,8 @@
       <div class="footer-col">
         <h4>Help</h4>
         <a href="https://github.com/InfluenceDevs/ReCord" target="_blank" rel="noreferrer">Source Code</a>
-        <a href="https://github.com/InfluenceDevs/ReCord/releases/download/v1.15.8/ReCordSetup.exe">Setup</a>
-        <a href="https://github.com/InfluenceDevs/ReCord/releases/tag/v1.15.8" target="_blank" rel="noreferrer">Version v1.15.8</a>
+        <a data-win-download href="https://github.com/InfluenceDevs/ReCord/releases/latest/download/ReCordSetup.exe">Latest Windows Setup</a>
+        <a data-version-label data-release-page href="https://github.com/InfluenceDevs/ReCord/releases/latest" target="_blank" rel="noreferrer">Latest Version</a>
       </div>
     </div>
   </footer>
