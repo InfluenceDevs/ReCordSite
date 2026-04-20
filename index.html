@@ -18,9 +18,10 @@
     <div class="container nav-inner">
       <a class="logo" href="#home" aria-label="ReCord home">
         <span class="logo-icon" aria-hidden="true">
-          <img src="images/logo.png" alt="ReCord logo" width="22" height="22" />
+          <img src="images/icon.png" alt="ReCord icon" width="22" height="22" />
         </span>
-        <span class="logo-wordmark">Re<strong>CORD</strong></span>
+        <img class="logo-wordmark-img" src="images/logo.png" alt="ReCord" />
+        <span class="sr-only">ReCord home</span>
       </a>
 
       <nav class="nav" aria-label="Main navigation">
@@ -163,31 +164,15 @@
         <p class="sec-sub reveal">Manage local styles, find new themes, and edit QuickCSS in one place.</p>
 
         <div class="themes-shell reveal">
-          <img class="panel-image" src="images/themeplaceholder.png" alt="Themes preview placeholder" />
-          <div class="themes-tabs">
-            <button class="tab-btn active" type="button">Local Themes</button>
-            <button class="tab-btn" type="button">Online Themes</button>
-          </div>
-
-          <article class="themes-card">
-            <h3>Find Themes:</h3>
-            <p><a href="https://github.com/InfluenceDevs/ReCord" target="_blank" rel="noreferrer">Open Source Themes Directory</a></p>
-            <p>If using external theme libraries, download the `.theme.css` file and place it in your themes folder.</p>
-          </article>
-
-          <article class="themes-card">
-            <h3>External Resources</h3>
-            <p>For security reasons, loading remote assets may be restricted. Host custom assets on trusted providers.</p>
-          </article>
-
-          <article class="themes-card local-tools">
-            <h3>Local Themes</h3>
-            <div class="local-actions">
-              <a class="mini-btn" href="#">Open Themes Folder</a>
-              <a class="mini-btn" href="#">Load Missing Themes</a>
-              <a class="mini-btn" href="#">Edit QuickCSS</a>
+          <div class="themes-content">
+            <div class="themes-copy">
+              <h3>Themes are fully supported.</h3>
+              <p>ReCord supports custom themes out of the box with QuickCSS and community packs.</p>
+              <p>Want more? Join the Discord server for community themes shared by creators and users.</p>
+              <a class="mini-btn" href="https://discord.gg/influence" target="_blank" rel="noreferrer">Browse Community Themes on Discord</a>
             </div>
-          </article>
+            <img class="theme-side-image" src="images/themeplaceholder.png" alt="Themes preview" />
+          </div>
         </div>
       </div>
     </section>
@@ -267,9 +252,10 @@
       <div class="footer-brand">
         <a class="logo" href="#home" aria-label="ReCord home">
           <span class="logo-icon" aria-hidden="true">
-            <img src="images/logo.png" alt="ReCord logo" width="22" height="22" />
+            <img src="images/icon.png" alt="ReCord icon" width="22" height="22" />
           </span>
-          <span class="logo-wordmark">Re<strong>CORD</strong></span>
+          <img class="logo-wordmark-img" src="images/logo.png" alt="ReCord" />
+          <span class="sr-only">ReCord home</span>
         </a>
         <p>The Discord Enhancement Project.<br>Open source and built by Influence.</p>
         <p class="footer-copy">&copy; 2026 ReCord Team</p>
