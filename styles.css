@@ -115,10 +115,12 @@ body {
 }
 
 .logo-wordmark-img {
-  height: 20px;
+  height: 14px;
   width: auto;
+  max-width: 110px;
   display: block;
-  filter: drop-shadow(0 0 10px rgba(65, 117, 255, 0.35));
+  object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(65, 117, 255, 0.28));
 }
 
 .nav {
@@ -570,94 +572,68 @@ body {
 
 .themes-content {
   display: grid;
-  grid-template-columns: 1.3fr minmax(220px, 360px);
-  gap: 1rem;
-  align-items: center;
+  grid-template-columns: 1.2fr minmax(210px, 290px);
+  gap: 1.1rem;
+  align-items: stretch;
 }
 
 .themes-copy {
   border: 1px solid var(--border);
-  border-radius: 12px;
-  background: rgba(23, 27, 40, 0.82);
-  padding: 1.1rem;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(27, 33, 50, 0.9), rgba(17, 21, 33, 0.92));
+  padding: 1.2rem;
+  box-shadow: inset 0 0 0 1px rgba(106, 147, 255, 0.12);
 }
 
 .themes-copy h3 {
-  font-size: 1.25rem;
-  margin-bottom: 0.6rem;
+  font-size: 1.32rem;
+  margin-bottom: 0.7rem;
 }
 
 .themes-copy p {
   color: var(--muted-lt);
-  line-height: 1.58;
-  margin-bottom: 0.7rem;
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+}
+
+.theme-points {
+  list-style: none;
+  margin: 0.9rem 0 1rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.theme-points li {
+  color: #c5d8ff;
+  padding-left: 1.15rem;
+  position: relative;
+}
+
+.theme-points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.45rem;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #5f8dff;
+  box-shadow: 0 0 8px rgba(95, 141, 255, 0.75);
+}
+
+.theme-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .theme-side-image {
   width: 100%;
-  max-width: 360px;
-  justify-self: end;
+  max-width: 270px;
   border-radius: 12px;
   border: 1px solid var(--border-act);
+  image-rendering: auto;
   animation: floatPreview 4.2s ease-in-out infinite;
-}
-
-.themes-tabs {
-  display: flex;
-  gap: 0.75rem;
-  border: 1px solid var(--border-act);
-  border-radius: 999px;
-  padding: 0.35rem;
-  max-width: 680px;
-  margin-bottom: 1rem;
-  background: rgba(17, 21, 32, 0.85);
-}
-
-.tab-btn {
-  border: 0;
-  background: transparent;
-  color: var(--muted-lt);
-  font-family: var(--font);
-  font-weight: 700;
-  border-radius: 999px;
-  padding: 0.62rem 1rem;
-  cursor: default;
-}
-
-.tab-btn.active {
-  color: #9cc0ff;
-  background: linear-gradient(180deg, rgba(65, 117, 255, 0.2), rgba(65, 117, 255, 0.08));
-  box-shadow: inset 0 -2px 0 rgba(120, 162, 255, 0.7);
-}
-
-.themes-card {
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  background: rgba(23, 27, 40, 0.82);
-  padding: 1rem;
-  margin-bottom: 0.85rem;
-}
-
-.themes-card h3 {
-  font-size: 1.08rem;
-  margin-bottom: 0.5rem;
-}
-
-.themes-card p {
-  color: var(--muted-lt);
-  line-height: 1.55;
-}
-
-.themes-card a {
-  color: #8ab5ff;
-  text-decoration: none;
-}
-
-.local-actions {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.65rem;
-  margin-top: 0.6rem;
 }
 
 .mini-btn {
@@ -676,6 +652,34 @@ body {
   align-items: center;
   justify-content: center;
   margin-top: 0.4rem;
+}
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #5d8dff, #8fc7ff);
+  box-shadow: 0 0 14px rgba(95, 141, 255, 0.75);
+  z-index: 120;
+}
+
+.section {
+  transition: transform 0.45s ease, filter 0.45s ease;
+}
+
+.section.section-lit {
+  filter: saturate(1.08) brightness(1.02);
+  transform: translateY(var(--section-shift, 0px));
+}
+
+.plugins-toolbar {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: rgba(16, 20, 31, 0.72);
 }
 
 .plugins-toolbar h3 {
@@ -1240,7 +1244,8 @@ body {
   .stat { min-width: 50%; }
   .plugins-grid2 { grid-template-columns: 1fr; }
   .themes-content { grid-template-columns: 1fr; }
-  .theme-side-image { justify-self: start; max-width: 280px; }
+  .theme-media { justify-content: flex-start; }
+  .theme-side-image { max-width: 220px; }
 }
 
 @media (max-width: 580px) {
@@ -1250,4 +1255,6 @@ body {
   .btn-primary, .btn-ghost { min-width: 100%; }
   .dl-card { padding: 3rem 1.2rem; }
   .code-body { font-size: 0.78rem; padding: 1rem; }
+  .logo-wordmark-img { height: 12px; max-width: 96px; }
+  .theme-side-image { max-width: 170px; }
 }

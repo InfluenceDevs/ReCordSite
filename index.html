@@ -13,6 +13,7 @@
 </head>
 <body>
   <div class="bg-dots" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"></div>
 
   <header class="site-header">
     <div class="container nav-inner">
@@ -160,18 +161,25 @@
     <section class="section alt-bg" id="themes">
       <div class="container">
         <p class="sec-label reveal">Themes</p>
-        <h2 class="sec-h reveal">Theme Center</h2>
-        <p class="sec-sub reveal">Manage local styles, find new themes, and edit QuickCSS in one place.</p>
+        <h2 class="sec-h reveal">Theme Hub</h2>
+        <p class="sec-sub reveal">Style your client your way with first-class theme support and active community sharing.</p>
 
         <div class="themes-shell reveal">
-          <div class="themes-content">
-            <div class="themes-copy">
-              <h3>Themes are fully supported.</h3>
-              <p>ReCord supports custom themes out of the box with QuickCSS and community packs.</p>
-              <p>Want more? Join the Discord server for community themes shared by creators and users.</p>
-              <a class="mini-btn" href="https://discord.gg/influence" target="_blank" rel="noreferrer">Browse Community Themes on Discord</a>
+          <div class="themes-content reveal-group">
+            <div class="themes-copy reveal">
+              <h3>Built-In Theme Engine</h3>
+              <p>Load custom CSS themes instantly, tweak variables live, and keep your setup synced with your plugins.</p>
+              <ul class="theme-points">
+                <li>Supports local theme packs</li>
+                <li>QuickCSS for rapid edits</li>
+                <li>Theme toggles and profile presets</li>
+              </ul>
+              <p>Community themes are shared in the official Discord server.</p>
+              <a class="mini-btn" href="https://discord.gg/influence" target="_blank" rel="noreferrer">Open Community Themes</a>
             </div>
-            <img class="theme-side-image" src="images/themeplaceholder.png" alt="Themes preview" />
+            <div class="theme-media reveal">
+              <img class="theme-side-image" src="images/themeplaceholder.png" alt="Themes preview" />
+            </div>
           </div>
         </div>
       </div>
@@ -184,8 +192,7 @@
         <p class="sec-sub reveal">Press the settings or info icon to inspect plugin details. Verified plugins are marked and safe by default.</p>
 
         <div class="plugins-toolbar reveal">
-          <img class="panel-image" src="assets/plugins-panel.svg" alt="ReCord plugin management preview" />
-          <h3>Filters</h3>
+          <h3>Plugin List</h3>
           <input type="text" placeholder="Search for a plugin..." aria-label="Search plugins" />
         </div>
 

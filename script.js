@@ -12,6 +12,33 @@ document.querySelectorAll(".reveal").forEach((el, i) => {
   revealObserver.observe(el);
 });
 
+const updateScrollFx = () => {
+  const doc = document.documentElement;
+  const scrollTop = window.scrollY || doc.scrollTop;
+  const maxScroll = Math.max(1, doc.scrollHeight - window.innerHeight);
+  const progress = Math.min(1, scrollTop / maxScroll);
+
+  const progressBar = document.querySelector(".scroll-progress");
+  if (progressBar) progressBar.style.width = `${progress * 100}%`;
+
+  document.querySelectorAll(".section").forEach((section) => {
+    const rect = section.getBoundingClientRect();
+    const centerOffset = rect.top + rect.height / 2 - window.innerHeight / 2;
+    const normalized = Math.max(-1, Math.min(1, centerOffset / (window.innerHeight * 0.8)));
+    section.style.setProperty("--section-shift", `${-normalized * 9}px`);
+
+    if (rect.top < window.innerHeight * 0.86 && rect.bottom > window.innerHeight * 0.14) {
+      section.classList.add("section-lit");
+    } else {
+      section.classList.remove("section-lit");
+    }
+  });
+};
+
+window.addEventListener("scroll", updateScrollFx, { passive: true });
+window.addEventListener("resize", updateScrollFx);
+updateScrollFx();
+
 const REPO = "InfluenceDevs/ReCord";
 
 const animateNumber = (element, target, duration = 1600) => {
