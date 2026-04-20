@@ -37,6 +37,27 @@ const setHrefAll = (selector, href) => {
   });
 };
 
+const escapeHtml = (value) => {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/\"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+};
+
+const makePluginCard = (name, enabled = false) => {
+  const safeName = escapeHtml(name);
+  const icon = enabled ? "⚙" : "i";
+  const toggleClass = enabled ? "toggle on" : "toggle";
+  return `
+    <article class="plugin-card reveal visible">
+      <div class="plugin-head"><h4 data-plugin-name>${safeName}</h4><span class="plugin-icons">${icon}</span><span class="${toggleClass}"></span></div>
+      <p data-plugin-desc>${safeName} plugin from the official src/plugins directory.</p>
+    </article>
+  `;
+};
+
 const fetchAllReleases = async () => {
   const all = [];
   let page = 1;
@@ -78,7 +99,10 @@ const updateFromLatestRelease = async () => {
     if (versionLabel) versionLabel.textContent = `Version ${tag}`;
 
     const mainDownload = document.querySelector("[data-release-page].btn-primary");
-    if (mainDownload) mainDownload.innerHTML = `${mainDownload.innerHTML.split("</svg>")[0]}</svg>Download ${tag} (All Platforms)`;
+    if (mainDownload) {
+      const svg = mainDownload.querySelector("svg")?.outerHTML || "";
+      mainDownload.innerHTML = `${svg}Download ${tag} (All Platforms)`;
+    }
 
   } catch {
     // Keep existing static fallbacks if API is unavailable.
@@ -113,19 +137,14 @@ const updatePluginCount = async () => {
     const el = document.getElementById("plugin-count");
     animateNumber(el, count, 900);
 
-    const names = plugins.slice(0, 4).map((entry) => entry.name);
-    const nameEls = document.querySelectorAll("[data-plugin-name]");
-    const descEls = document.querySelectorAll("[data-plugin-desc]");
-
-    nameEls.forEach((node, index) => {
-      if (names[index]) node.textContent = names[index];
-    });
-
-    descEls.forEach((node, index) => {
-      if (names[index]) {
-        node.textContent = `${names[index]} plugin from the official src/plugins directory.`;
-      }
-    });
+    const listEl = document.getElementById("plugins-list");
+    if (listEl && plugins.length > 0) {
+      const cards = plugins
+        .slice(0, 20)
+        .map((plugin, index) => makePluginCard(plugin.name, index % 4 === 0))
+        .join("");
+      listEl.innerHTML = cards;
+    }
   } catch {
     // Keep static fallback if API is unavailable.
   }

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ReCord — Discord, Upgraded</title>
   <meta name="description" content="ReCord is an open-source Discord client by Influence. Verified-safe plugins, custom themes, built-in opsec, and advanced moderation." />
-  <link rel="icon" type="image/svg+xml" href="/assets/icon.svg" />
+  <link rel="icon" type="image/svg+xml" href="assets/icon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -18,7 +18,7 @@
     <div class="container nav-inner">
       <a class="logo" href="#home" aria-label="ReCord home">
         <span class="logo-icon" aria-hidden="true">
-          <img src="/assets/logo-mark.svg" alt="ReCord logo" width="22" height="22" />
+          <img src="assets/icon.png" alt="ReCord logo" width="22" height="22" />
         </span>
         <span class="logo-wordmark">Re<strong>CORD</strong></span>
       </a>
@@ -30,7 +30,7 @@
         <a href="#docs">Docs</a>
       </nav>
 
-      <a class="nav-cta" data-release-page href="https://github.com/InfluenceDevs/ReCord/releases/latest">Windows · Linux · macOS</a>
+      <a class="nav-cta" data-release-page href="https://github.com/InfluenceDevs/ReCord/releases/latest">Download</a>
     </div>
   </header>
 
@@ -163,7 +163,7 @@
         <p class="sec-sub reveal">Manage local styles, find new themes, and edit QuickCSS in one place.</p>
 
         <div class="themes-shell reveal">
-          <img class="panel-image" src="/assets/themes-placeholder.svg" alt="Themes preview placeholder" />
+          <img class="panel-image" src="assets/themes-placeholder.png" alt="Themes preview placeholder" />
           <div class="themes-tabs">
             <button class="tab-btn active" type="button">Local Themes</button>
             <button class="tab-btn" type="button">Online Themes</button>
@@ -199,14 +199,14 @@
         <p class="sec-sub reveal">Press the settings or info icon to inspect plugin details. Verified plugins are marked and safe by default.</p>
 
         <div class="plugins-toolbar reveal">
-          <img class="panel-image" src="/assets/plugins-panel.svg" alt="ReCord plugin management preview" />
+          <img class="panel-image" src="assets/plugins-panel.svg" alt="ReCord plugin management preview" />
           <h3>Filters</h3>
           <input type="text" placeholder="Search for a plugin..." aria-label="Search plugins" />
         </div>
 
         <p class="plugins-count reveal"><strong id="plugin-count">0</strong> plugins tracked from <a href="https://github.com/InfluenceDevs/ReCord/tree/main/src/plugins" target="_blank" rel="noreferrer">src/plugins</a>. Showing live examples below.</p>
 
-        <div class="plugins-grid2 reveal-group">
+        <div id="plugins-list" class="plugins-grid2 plugins-scroll reveal-group">
           <article class="plugin-card reveal">
             <div class="plugin-head"><h4 data-plugin-name>AccountPanelServerProfile</h4><span class="plugin-icons">⚙</span><span class="toggle on"></span></div>
             <p data-plugin-desc>Right click your account panel in the bottom left to view your profile in the current server.</p>
@@ -267,7 +267,7 @@
       <div class="footer-brand">
         <a class="logo" href="#home" aria-label="ReCord home">
           <span class="logo-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="10" stroke="#4175ff" stroke-width="2"/><path d="M8 8h5c1.1 0 2 .9 2 2s-.9 2-2 2H8V8zM8 12h1.5l3.5 3.5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <img src="assets/logo-mark.svg" alt="ReCord logo" width="22" height="22" />
           </span>
           <span class="logo-wordmark">Re<strong>CORD</strong></span>
         </a>

@@ -623,6 +623,26 @@ body {
   gap: 0.9rem;
 }
 
+.plugins-scroll {
+  max-height: 420px;
+  overflow-y: auto;
+  padding-right: 0.35rem;
+}
+
+.plugins-scroll::-webkit-scrollbar {
+  width: 10px;
+}
+
+.plugins-scroll::-webkit-scrollbar-thumb {
+  background: rgba(85, 129, 235, 0.65);
+  border-radius: 999px;
+}
+
+.plugins-scroll::-webkit-scrollbar-track {
+  background: rgba(22, 28, 44, 0.85);
+  border-radius: 999px;
+}
+
 .plugin-card {
   border: 1px solid var(--border);
   background: rgba(24, 27, 40, 0.9);
