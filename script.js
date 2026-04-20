@@ -37,6 +37,23 @@ const setHrefAll = (selector, href) => {
   });
 };
 
+const fetchAllReleases = async () => {
+  const all = [];
+  let page = 1;
+
+  while (true) {
+    const res = await fetch(`https://api.github.com/repos/${REPO}/releases?per_page=100&page=${page}`, { cache: "no-store" });
+    if (!res.ok) break;
+    const chunk = await res.json();
+    if (!Array.isArray(chunk) || chunk.length === 0) break;
+    all.push(...chunk);
+    if (chunk.length < 100) break;
+    page += 1;
+  }
+
+  return all;
+};
+
 const updateFromLatestRelease = async () => {
   try {
     const res = await fetch(`https://api.github.com/repos/${REPO}/releases/latest`, { cache: "no-store" });
@@ -52,8 +69,6 @@ const updateFromLatestRelease = async () => {
 
     const releaseUrl = release.html_url || `https://github.com/${REPO}/releases/latest`;
     const tag = release.tag_name || "latest";
-    const totalDownloads = assets.reduce((sum, a) => sum + (a.download_count || 0), 0);
-
     setHrefAll("[data-release-page]", releaseUrl);
     if (windowsExe?.browser_download_url) setHrefAll("[data-win-download]", windowsExe.browser_download_url);
     if (linuxZip?.browser_download_url) setHrefAll("[data-linux-download]", linuxZip.browser_download_url);
@@ -65,10 +80,23 @@ const updateFromLatestRelease = async () => {
     const mainDownload = document.querySelector("[data-release-page].btn-primary");
     if (mainDownload) mainDownload.innerHTML = `${mainDownload.innerHTML.split("</svg>")[0]}</svg>Download ${tag} (All Platforms)`;
 
+  } catch {
+    // Keep existing static fallbacks if API is unavailable.
+  }
+};
+
+const updateTotalDownloads = async () => {
+  try {
+    const releases = await fetchAllReleases();
+    const totalDownloads = releases.reduce((releaseSum, release) => {
+      const assets = Array.isArray(release.assets) ? release.assets : [];
+      return releaseSum + assets.reduce((assetSum, asset) => assetSum + (asset.download_count || 0), 0);
+    }, 0);
+
     const dlEl = document.getElementById("dl-num");
     animateNumber(dlEl, totalDownloads, 1200);
   } catch {
-    // Keep existing static fallbacks if API is unavailable.
+    // Keep existing static fallback if API is unavailable.
   }
 };
 
@@ -77,13 +105,32 @@ const updatePluginCount = async () => {
     const res = await fetch(`https://api.github.com/repos/${REPO}/contents/src/plugins`, { cache: "no-store" });
     if (!res.ok) return;
     const entries = await res.json();
-    const count = Array.isArray(entries) ? entries.length : 0;
+    const plugins = Array.isArray(entries)
+      ? entries.filter((entry) => entry.type === "dir" && !entry.name.startsWith("_"))
+      : [];
+
+    const count = plugins.length;
     const el = document.getElementById("plugin-count");
     animateNumber(el, count, 900);
+
+    const names = plugins.slice(0, 4).map((entry) => entry.name);
+    const nameEls = document.querySelectorAll("[data-plugin-name]");
+    const descEls = document.querySelectorAll("[data-plugin-desc]");
+
+    nameEls.forEach((node, index) => {
+      if (names[index]) node.textContent = names[index];
+    });
+
+    descEls.forEach((node, index) => {
+      if (names[index]) {
+        node.textContent = `${names[index]} plugin from the official src/plugins directory.`;
+      }
+    });
   } catch {
     // Keep static fallback if API is unavailable.
   }
 };
 
 updateFromLatestRelease();
+updateTotalDownloads();
 updatePluginCount();
