@@ -88,16 +88,15 @@ body {
 }
 
 .logo-icon {
-  width: 34px;
-  height: 34px;
+  width: 44px;
+  height: 44px;
   display: grid;
   place-items: center;
 }
 
 .logo-icon img {
   display: block;
-  border-radius: 8px;
-  box-shadow: 0 0 0 1px rgba(95, 141, 255, 0.25), 0 0 24px rgba(65, 117, 255, 0.4);
+  border-radius: 0;
   animation: logoFloat 3.2s ease-in-out infinite;
 }
 
@@ -115,12 +114,11 @@ body {
 }
 
 .logo-wordmark-img {
-  height: 14px;
+  height: 22px;
   width: auto;
-  max-width: 110px;
+  max-width: 160px;
   display: block;
   object-fit: contain;
-  filter: drop-shadow(0 0 8px rgba(65, 117, 255, 0.28));
 }
 
 .nav {
@@ -578,11 +576,10 @@ body {
 }
 
 .themes-copy {
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  background: linear-gradient(180deg, rgba(27, 33, 50, 0.9), rgba(17, 21, 33, 0.92));
-  padding: 1.2rem;
-  box-shadow: inset 0 0 0 1px rgba(106, 147, 255, 0.12);
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  padding: 1.2rem 1.2rem 1.2rem 0;
 }
 
 .themes-copy h3 {
@@ -629,9 +626,9 @@ body {
 
 .theme-side-image {
   width: 100%;
-  max-width: 270px;
-  border-radius: 12px;
-  border: 1px solid var(--border-act);
+  max-width: 420px;
+  border-radius: 0;
+  border: none;
   image-rendering: auto;
   animation: floatPreview 4.2s ease-in-out infinite;
 }
@@ -639,8 +636,8 @@ body {
 .mini-btn {
   text-decoration: none;
   color: #d8e4ff;
-  background: rgba(34, 39, 53, 0.95);
-  border: 1px solid var(--border-act);
+  background: rgba(34, 39, 53, 0.7);
+  border: none;
   border-radius: 10px;
   padding: 0.72rem 0.8rem;
   font-weight: 600;
@@ -1245,7 +1242,7 @@ body {
   .plugins-grid2 { grid-template-columns: 1fr; }
   .themes-content { grid-template-columns: 1fr; }
   .theme-media { justify-content: flex-start; }
-  .theme-side-image { max-width: 220px; }
+  .theme-side-image { max-width: 100%; }
 }
 
 @media (max-width: 580px) {
@@ -1255,6 +1252,6 @@ body {
   .btn-primary, .btn-ghost { min-width: 100%; }
   .dl-card { padding: 3rem 1.2rem; }
   .code-body { font-size: 0.78rem; padding: 1rem; }
-  .logo-wordmark-img { height: 12px; max-width: 96px; }
-  .theme-side-image { max-width: 170px; }
+  .logo-wordmark-img { height: 18px; max-width: 140px; }
+  .theme-side-image { max-width: 100%; }
 }
