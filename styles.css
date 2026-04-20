@@ -80,6 +80,10 @@ body {
   place-items: center;
 }
 
+.logo-icon img {
+  display: block;
+}
+
 .logo-wordmark {
   font-size: 1.2rem;
   font-weight: 500;
@@ -516,26 +520,6 @@ body {
   border-radius: 12px;
   border: 1px solid var(--border-act);
   margin-bottom: 0.9rem;
-}
-
-.theme-placeholder {
-  width: 100%;
-  min-height: 220px;
-  border-radius: 12px;
-  border: 1px dashed #4e6fbe;
-  margin-bottom: 0.9rem;
-  display: grid;
-  place-items: center;
-  color: #87abf5;
-  background: repeating-linear-gradient(
-    -45deg,
-    rgba(30, 43, 73, 0.45),
-    rgba(30, 43, 73, 0.45) 14px,
-    rgba(18, 27, 49, 0.52) 14px,
-    rgba(18, 27, 49, 0.52) 28px
-  );
-  font-weight: 700;
-  letter-spacing: 0.03em;
 }
 
 .themes-tabs {
